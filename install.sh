@@ -211,6 +211,7 @@ cmake \
       -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH                                    \
       -DCMAKE_LIBRARY_PATH=$CUDA_PATH/lib64/stubs/                            \
       -DCUDA_CUDA_LIBRARY=$CUDA_PATH/lib64/stubs/libcuda.so                   \
+      -DCUDA_NVCC_FLAGS="-D_FORCE_INLINES --expt-relaxed-constexpr"         \
       -DCUDA_FAST_MATH=ON                                                     \
       -DCUDA_TOOLKIT_ROOT_DIR=$CUDA_PATH                                      \
       -DENABLE_CCACHE=ON                                                      \
