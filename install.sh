@@ -174,6 +174,8 @@ for repo in $REPOS; do
   else
     msg "Downloading $1 Package"
     git clone $2 || fail
+    git fetch --all || fail
+    git checkout tags/3.4.1 -b 3.4.1 || fail
   fi
 done
 
