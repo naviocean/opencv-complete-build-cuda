@@ -43,7 +43,7 @@ sudo apt -y upgrade || fail
 sudo apt -y dist-upgrade || fail
 sudo apt -y autoremove || fail
 sudo apt -y autoclean || fail
-
+sudo apt-get install ccache || fail
 msg "Installing build tools."
 sudo apt install -y                                                           \
   build-essential                                                             \
@@ -174,8 +174,8 @@ for repo in $REPOS; do
   else
     msg "Downloading $1 Package"
     git clone $2 || fail
-    git fetch --all || fail
-    git checkout tags/3.4.1 -b 3.4.1 || fail
+    git fetch --tags || fail
+    git fetch origin refs/tags/3.4.1 || fail
   fi
 done
 
@@ -235,7 +235,7 @@ cmake \
       -DWITH_QT=ON                                                            \
       -DWITH_TBB=ON                                                           \
       -DWITH_V4L=ON                                                           \
-      -DWITH_VTK=ON                                                           \
+      -DWITH_VTK=OFF                                                          \
       -DWITH_XINE=ON                                                          \
 .. || fail
 
