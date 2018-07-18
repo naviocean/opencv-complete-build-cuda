@@ -237,6 +237,7 @@ cmake \
       -DWITH_V4L=ON                                                           \
       -DWITH_VTK=OFF                                                          \
       -DWITH_XINE=ON                                                          \
+      -DENABLE_CXX11=ON                                                       \
 .. || fail
 
 # Making
