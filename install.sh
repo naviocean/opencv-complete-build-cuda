@@ -160,8 +160,7 @@ cd $DOWNLOAD_PATH
 
 REPOS="ceres-solver,https://ceres-solver.googlesource.com/ceres-solver
   opencv,https://github.com/opencv/opencv.git
-  opencv_contrib,https://github.com/opencv/opencv_contrib.git
-  opencv_extra,https://github.com/opencv/opencv_extra.git"
+  opencv_contrib,https://github.com/opencv/opencv_contrib.git"
 
 for repo in $REPOS; do
   IFS=","
@@ -203,26 +202,19 @@ mcd opencv/build || fail
 msg "Configuring OpenCV Make"
 cmake \
       -DBUILD_EXAMPLES=ON                                                     \
-      -DBUILD_OPENCV_JAVA=OFF                                                 \
-      -DBUILD_OPENCV_JS=ON                                                    \
-      -DBUILD_OPENCV_NONFREE=ON                                               \
       -DBUILD_OPENCV_PYTHON=ON                                                \
       -DCMAKE_BUILD_TYPE=RELEASE                                              \
       -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH                                    \
       -DCMAKE_LIBRARY_PATH=$CUDA_PATH/lib64/stubs/                            \
       -DCUDA_CUDA_LIBRARY=$CUDA_PATH/lib64/stubs/libcuda.so                   \
-      -DCUDA_NVCC_FLAGS="-D_FORCE_INLINES --expt-relaxed-constexpr"         \
+      -DCUDA_NVCC_FLAGS="-D_FORCE_INLINES --expt-relaxed-constexpr"           \
       -DCUDA_FAST_MATH=ON                                                     \
       -DCUDA_TOOLKIT_ROOT_DIR=$CUDA_PATH                                      \
       -DENABLE_CCACHE=ON                                                      \
       -DENABLE_FAST_MATH=ON                                                   \
       -DENABLE_PRECOMPILED_HEADERS=OFF                                        \
-      -DINSTALL_C_EXAMPLES=ON                                                 \
       -DINSTALL_PYTHON_EXAMPLES=ON                                            \
-      -DINSTALL_TESTS=ON                                                      \
       -DOPENCV_EXTRA_MODULES_PATH=$DOWNLOAD_PATH/opencv_contrib/modules/      \
-      -DOPENCV_ENABLE_NONFREE=ON                                              \
-      -DOPENCV_TEST_DATA_PATH=$DOWNLOAD_PATH/opencv_extra/testdata/           \
       -DWITH_CUBLAS=ON                                                        \
       -DWITH_CUDA=ON                                                          \
       -DWITH_FFMPEG=ON                                                        \
@@ -235,7 +227,7 @@ cmake \
       -DWITH_QT=ON                                                            \
       -DWITH_TBB=ON                                                           \
       -DWITH_V4L=ON                                                           \
-      -DWITH_VTK=OFF                                                          \
+      -DWITH_VTK=ON                                                           \
       -DWITH_XINE=ON                                                          \
       -DENABLE_CXX11=ON                                                       \
 .. || fail
