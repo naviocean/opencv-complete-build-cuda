@@ -230,6 +230,7 @@ cmake \
       -DWITH_VTK=ON                                                           \
       -DWITH_XINE=ON                                                          \
       -DENABLE_CXX11=ON                                                       \
+      -DCUDA_ARCH_BIN=6.1                                                     \
 .. || fail
 
 # Making
