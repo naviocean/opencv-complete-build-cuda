@@ -230,7 +230,9 @@ cmake \
       -DWITH_VTK=ON                                                           \
       -DWITH_XINE=ON                                                          \
       -DENABLE_CXX11=ON                                                       \
-      -DCUDA_ARCH_BIN=6.1                                                     \
+      -DCUDA_ARCH_BIN="3.0 3.5 3.7 5.0 5.2 6.0 6.1"                           \
+      -DENABLE_PRECOMPILED_HEADERS=OFF                                        \
+      -DBUILD_opencv_cudacodec=OFF                                            \
 .. || fail
 
 # Making
