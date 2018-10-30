@@ -242,6 +242,7 @@ make -j $(($(nproc)+1)) test || fail
 
 msg "Installing OpenCV"
 sudo make -j $(($(nproc)+1)) install || fail
+sudo sh -c 'echo "/usr/local/opencv/lib" >> /etc/ld.so.conf.d/opencv.conf'
 sudo ldconfig || fail
 
 # Finished
