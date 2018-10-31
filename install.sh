@@ -31,7 +31,7 @@ msg "Installation Started"
 INSTALL_PATH="/usr/local/opencv"
 msg "OpenCV will be installed in $INSTALL_PATH"
 
-DOWNLOAD_PATH=$1
+DOWNLOAD_PATH=$PWD
 msg "OpenCV will be downloaded in $DOWNLOAD_PATH"
 
 CUDA_PATH="/usr/local/cuda"
