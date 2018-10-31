@@ -173,9 +173,11 @@ for repo in $REPOS; do
   else
     msg "Downloading $1 Package"
     git clone $2 || fail
+    cd $1
     git fetch --tags || fail
     git fetch origin refs/tags/3.4.3 || fail
     git checkout 3.4.3 || fail
+    cd ..
   fi
 done
 
